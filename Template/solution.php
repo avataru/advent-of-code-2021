@@ -26,3 +26,19 @@ class PartTwo extends PartOne
         // TO DO
     }
 }
+
+function d(...$data)
+{
+    foreach ($data as $value) {
+        var_dump($value) . "\n";
+    }
+}
+
+function dd(...$data)
+{
+    foreach ($data as $value) {
+        var_dump($value) . "\n";
+    }
+
+    die();
+}
