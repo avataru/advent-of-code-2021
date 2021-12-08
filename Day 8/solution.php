@@ -7,19 +7,18 @@ echo sprintf("Part two: %d\n", (new PartTwo($file))->solve());
 
 class PartOne
 {
-    protected array $data;
+    protected $stream;
 
     public function __construct(string $file)
     {
-        $input = file_get_contents($file);
-        $this->data = explode("\n", trim($input));
+        $this->stream = fopen($file, 'r');
     }
 
     public function solve(): int
     {
         $count = 0;
-        foreach ($this->data as $line) {
-            list($digits, $output) = explode(' | ', $line);
+        while (($line = fgets($this->stream)) !== false) {
+            list($digits, $output) = explode(' | ', trim($line));
             $digits = explode(' ', $digits);
             $output = explode(' ', $output);
 
@@ -36,8 +35,8 @@ class PartTwo extends PartOne
     public function solve(): int
     {
         $sum = 0;
-        foreach ($this->data as $line) {
-            list($digits, $output) = explode(' | ', $line);
+        while (($line = fgets($this->stream)) !== false) {
+            list($digits, $output) = explode(' | ', trim($line));
             $digits = explode(' ', $digits);
             $output = explode(' ', $output);
 
