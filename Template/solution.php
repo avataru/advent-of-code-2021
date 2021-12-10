@@ -7,10 +7,12 @@ echo sprintf("Part two: %d\n", (new PartTwo($file))->solve());
 
 class PartOne
 {
+    protected array $data
+
     public function __construct(string $file)
     {
         $input = file_get_contents($file);
-        // TO DO
+        $this->data = explode("\n", trim($input));
     }
 
     public function solve(): int
