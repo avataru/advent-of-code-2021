@@ -1,0 +1,17 @@
+{
+    "name": "avataru/advent-of-code-2021",
+    "description": "Advent of Code 2021",
+    "minimum-stability": "stable",
+    "license": "Boost Software License",
+    "authors": [
+        {
+            "name": "Mihai Zaharie",
+            "email": "mihai@zaharie.ro"
+        }
+    ],
+    "require": {
+        "php": "^7.4 || ^8.0",
+        "roave/security-advisories": "dev-master",
+        "guzzlehttp/guzzle": "^7.0"
+    }
+}
