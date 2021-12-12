@@ -7,17 +7,18 @@ echo sprintf("Part two: %d\n", (new PartTwo($file))->solve());
 
 class PartOne
 {
-    protected array $data
+    protected array $data;
 
     public function __construct(string $file)
     {
-        $input = file_get_contents($file);
+        $input = file_get_contents(__DIR__ . '/' . $file);
         $this->data = explode("\n", trim($input));
     }
 
     public function solve(): int
     {
         // TO DO
+        return 0;
     }
 }
 
@@ -26,6 +27,7 @@ class PartTwo extends PartOne
     public function solve(): int
     {
         // TO DO
+        return 0;
     }
 }
 

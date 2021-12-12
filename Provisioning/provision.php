@@ -53,7 +53,7 @@ function createFolder(DateTime $date): bool
     }
 
     mkdir($folder);
-    copy('solution.php.template', $folder . '/solution.php');
+    copy(__DIR__ . '/solution.php.template', $folder . '/solution.php');
 
     return true;
 }
