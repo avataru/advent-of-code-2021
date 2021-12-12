@@ -1,5 +1,7 @@
 <?php
 
+require __DIR__ . '/../Provisioning/vendor/autoload.php';
+
 $file = count($argv) > 1 && in_array($argv[1], ['-s', '--sample']) ? 'sample.txt' : 'input.txt';
 
 echo sprintf("Part one: %d\n", (new PartOne($file))->solve());
@@ -29,20 +31,4 @@ class PartTwo extends PartOne
         // TO DO
         return 0;
     }
-}
-
-function d(...$data)
-{
-    foreach ($data as $value) {
-        var_dump($value) . "\n";
-    }
-}
-
-function dd(...$data)
-{
-    foreach ($data as $value) {
-        var_dump($value) . "\n";
-    }
-
-    die();
 }

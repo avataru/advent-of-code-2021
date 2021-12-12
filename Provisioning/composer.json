@@ -12,6 +12,7 @@
     "require": {
         "php": "^7.4 || ^8.0",
         "roave/security-advisories": "dev-master",
-        "guzzlehttp/guzzle": "^7.0"
+        "guzzlehttp/guzzle": "^7.0",
+        "symfony/var-dumper": "^5.4"
     }
 }
