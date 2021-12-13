@@ -26,6 +26,10 @@ try {
         echo 'Input file added' . "\n";
     }
 
+    if (updateReadme($date)) {
+        echo 'Readme updated' . "\n";
+    }
+
     echo 'Done!';
 } catch (Exception $e) {
     echo $e->getMessage();
@@ -112,6 +116,26 @@ function addSample(Client $client, DateTime $date): bool
     if ($size === false || strlen($sample) !== $size) {
         throw new Exception('Error writing sample file');
     }
+
+    return true;
+}
+
+function updateReadme(DateTime $date): bool
+{
+    $readme = file_get_contents(__DIR__ . '/../README.md');
+
+    $day = $date->format('j');
+    $daysBadge = sprintf('![Days Completed](https://img.shields.io/badge/days%%20completed-%d-red?style=for-the-badge)', $day);
+    $starsBadge = sprintf('![Stars](https://img.shields.io/badge/stars%%20⭐-%d-yellow?style=for-the-badge)', 2 * $day);
+
+    $newReadme = preg_replace('/!\[Days Completed.+?\)/', $daysBadge, $readme);
+    $newReadme = preg_replace('/!\[Stars.+?\)/', $starsBadge, $newReadme);
+
+    if ($newReadme === $readme) {
+        return false;
+    }
+
+    file_put_contents(__DIR__ . '/../README.md', $newReadme);
 
     return true;
 }
