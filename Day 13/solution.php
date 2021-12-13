@@ -93,7 +93,7 @@ class Instructions
 
         for ($y = 0; $y < $this->height; $y++) {
             for ($x = 0; $x < $this->width; $x++) {
-                $output .= isset($this->grid[$y][$x]) ? '#' : '.';
+                $output .= isset($this->grid[$y][$x]) ? '█' : ' ';
             }
             $output .= "\n";
         }
@@ -105,7 +105,7 @@ class Instructions
     {
         foreach ($this->grid as $y => $points) {
             for ($x = $foldLine + 1; $x < $this->width; $x++) {
-                $newX = $foldLine - ($x - $foldLine);
+                $newX = 2 * $foldLine - $x;
 
                 if (isset($this->grid[$y][$x])) {
                     $this->grid[$y][$newX] = true;
@@ -122,7 +122,7 @@ class Instructions
         for ($y = $foldLine + 1; $y < $this->height; $y++) {
             $points = array_keys($this->grid[$y] ?? []);
             unset($this->grid[$y]);
-            $newY = $foldLine - ($y - $foldLine);
+            $newY = 2 * $foldLine - $y;
 
             foreach ($points as $x) {
                 $this->grid[$newY][$x] = true;
